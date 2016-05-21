@@ -21,7 +21,7 @@ bundle
 ## Run
 
 ```
-ruby export_to_quiver.rb
+ruby export_to_quiver.rb https://website-of-your-mediawiki.com/some-subdir/maybe
 ```
 
 ## With auth
