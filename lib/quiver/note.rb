@@ -34,21 +34,16 @@ module Quiver
     def meta_json
       meta_attrs = {
         created_at: created_at.to_time.to_i,
+        updated_at: (updated_at || created_at).to_time.to_i,
         title: title,
         uuid: uuid
-      }
-
-      if updated_at
-        meta_attrs[:updated_at] = updated_at.to_time.to_i
-      end
-
-      meta_attrs.to_json
+      }.to_json
     end
 
     def content_json
       {
         title: title,
-        cells: cells.map(&:to_json)
+        cells: cells.map(&:to_h)
       }.to_json
     end
   end

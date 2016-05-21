@@ -13,10 +13,10 @@ module Quiver
     def generate_cells
       @cells = []
 
-      content.split.each do |line|
+      content.split("\n").each do |line|
         set_correct_cell_for_line(line)
 
-        current_cell.content += line
+        current_cell.content += line + "\n"
       end
     end
 

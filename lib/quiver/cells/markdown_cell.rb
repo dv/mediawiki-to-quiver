@@ -6,8 +6,8 @@ module Quiver
       @content = content
     end
 
-    def to_json(*args)
-      { type: 'markdown', data: content }.to_json(*args)
+    def to_h
+      { type: 'markdown', data: content }
     end
   end
 end

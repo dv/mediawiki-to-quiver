@@ -6,8 +6,8 @@ module Quiver
       @content, @language = content, language
     end
 
-    def to_json(*args)
-      { type: 'code', language: language, data: content }.to_json(*args)
+    def to_h
+      { type: 'code', language: language, data: content }
     end
   end
 end
