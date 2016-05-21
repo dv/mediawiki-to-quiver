@@ -72,4 +72,4 @@ titles.each_slice(25) do |batch_titles|
   end
 end
 
-notebook.save_to_directory("~/markdown-export/")
+notebook.save_to_directory("markdown-export/")

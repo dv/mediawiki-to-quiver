@@ -16,7 +16,7 @@ module Quiver
       @cells << cell
     end
 
-    def save_in_directory(base_directory)
+    def save_to_directory(base_directory)
       note_directory = [base_directory, directory_name].join("/")
 
       FileUtils.mkdir_p(note_directory)
@@ -32,12 +32,17 @@ module Quiver
     end
 
     def meta_json
-      {
-        created_at: created_at.to_i,
-        updated_at: updated_at.to_i,
+      meta_attrs = {
+        created_at: created_at.to_time.to_i,
         title: title,
         uuid: uuid
-      }.to_json
+      }
+
+      if updated_at
+        meta_attrs[:updated_at] = updated_at.to_time.to_i
+      end
+
+      meta_attrs.to_json
     end
 
     def content_json
